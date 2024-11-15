@@ -1,4 +1,4 @@
-# Peanut-GB for NumWorks
+# Peanut-GB for NumWorks (enhanced edition)
 
 [![Build](https://github.com/nwagyu/peanutgb/actions/workflows/build.yml/badge.svg)](https://github.com/nwagyu/peanutgb/actions/workflows/build.yml)
 
