@@ -11,7 +11,7 @@ jobs:
         uses: numworks/setup-arm-toolchain@2020-q2
       - name: Run make build
         run: make build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
               name: peanutgb
               path: ./output/peanutgb.nwa
