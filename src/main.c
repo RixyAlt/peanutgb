@@ -50,14 +50,7 @@ static void lcd_draw_line_centered(struct gb_s* gb, const uint8_t* input_pixels,
 
     //fix each pixel with gb->cgb.fixPalette
     for (int i = 0; i < LCD_WIDTH; i++) {
-        if (gb->cgb.cgbMode) {
-            output_pixels[i] = gb->cgb.fixPalette[input_pixels[i]];
-            output_pixels[i] = (output_pixels[i] & 0x1F) << 11 | (output_pixels[i] & 0x3E0) << 1 | (output_pixels[i] & 0x7C00) >> 10;
-            output_pixels[i] = (output_pixels[i] & 0x1F) << 11 | (output_pixels[i] & 0x7E0) | (output_pixels[i] & 0xF800) >> 11;
-        }
-        else {
-            output_pixels[i] = eadk_color_from_gb_pixel(input_pixels[i]);
-        }
+        output_pixels[i] = eadk_color_from_gb_pixel(input_pixels[i]);
     }
     //dump output_pixels to screen
     eadk_display_push_rect((eadk_rect_t) { (EADK_SCREEN_WIDTH - LCD_WIDTH) / 2, (EADK_SCREEN_HEIGHT - LCD_HEIGHT) / 2 + line, LCD_WIDTH, 1 }, output_pixels);
