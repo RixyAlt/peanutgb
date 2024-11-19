@@ -70,15 +70,7 @@ static void lcd_draw_line_maximized(struct gb_s* gb, const uint8_t* input_pixels
     eadk_color_t output_pixels[LCD_WIDTH];
     eadk_color_t zoomPixels[2 * LCD_WIDTH];
     for (int i = 0; i < LCD_WIDTH; i++) {
-        if (gb->cgb.cgbMode) {
-            output_pixels[i] = gb->cgb.fixPalette[input_pixels[i]];
-            output_pixels[i] = (output_pixels[i] & 0x1F) << 11 | (output_pixels[i] & 0x3E0) << 1 | (output_pixels[i] & 0x7C00) >> 10;
-            output_pixels[i] = (output_pixels[i] & 0x1F) << 11 | (output_pixels[i] & 0x7E0) | (output_pixels[i] & 0xF800) >> 11;
-        }
-        else {
-            output_pixels[i] = eadk_color_from_gb_pixel(input_pixels[i]);
-        }
-
+        output_pixels[i] = eadk_color_from_gb_pixel(input_pixels[i]);
         eadk_color_t color = output_pixels[i];
 
 
